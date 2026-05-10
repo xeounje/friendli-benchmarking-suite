@@ -1,0 +1,102 @@
+{
+  "vLLM": [
+    {
+      "concurrency": 1,
+      "throughput_tok_s": 1054.21,
+      "ttft_p50_ms": 212.4,
+      "ttft_p99_ms": 307.3,
+      "e2e_p50_ms": 4679.8,
+      "e2e_p99_ms": 6642.4
+    },
+    {
+      "concurrency": 2,
+      "throughput_tok_s": 899.85,
+      "ttft_p50_ms": 225.3,
+      "ttft_p99_ms": 368.1,
+      "e2e_p50_ms": 5088.5,
+      "e2e_p99_ms": 7535.8
+    },
+    {
+      "concurrency": 4,
+      "throughput_tok_s": 751.37,
+      "ttft_p50_ms": 258.6,
+      "ttft_p99_ms": 395.5,
+      "e2e_p50_ms": 6304.4,
+      "e2e_p99_ms": 9380.9
+    },
+    {
+      "concurrency": 8,
+      "throughput_tok_s": 661.7,
+      "ttft_p50_ms": 347.6,
+      "ttft_p99_ms": 479.9,
+      "e2e_p50_ms": 6658.2,
+      "e2e_p99_ms": 10677.0
+    },
+    {
+      "concurrency": 16,
+      "throughput_tok_s": 460.06,
+      "ttft_p50_ms": 418.1,
+      "ttft_p99_ms": 603.6,
+      "e2e_p50_ms": 10388.7,
+      "e2e_p99_ms": 15043.7
+    },
+    {
+      "concurrency": 32,
+      "throughput_tok_s": 357.89,
+      "ttft_p50_ms": 631.5,
+      "ttft_p99_ms": 942.5,
+      "e2e_p50_ms": 15496.9,
+      "e2e_p99_ms": 19472.3
+    }
+  ],
+  "Friendli Engine": [
+    {
+      "concurrency": 1,
+      "throughput_tok_s": 1579.26,
+      "ttft_p50_ms": 117.8,
+      "ttft_p99_ms": 143.6,
+      "e2e_p50_ms": 3581.5,
+      "e2e_p99_ms": 4502.6
+    },
+    {
+      "concurrency": 2,
+      "throughput_tok_s": 1315.48,
+      "ttft_p50_ms": 119.1,
+      "ttft_p99_ms": 168.6,
+      "e2e_p50_ms": 3861.9,
+      "e2e_p99_ms": 5209.7
+    },
+    {
+      "concurrency": 4,
+      "throughput_tok_s": 1214.72,
+      "ttft_p50_ms": 128.9,
+      "ttft_p99_ms": 191.5,
+      "e2e_p50_ms": 4220.3,
+      "e2e_p99_ms": 5901.2
+    },
+    {
+      "concurrency": 8,
+      "throughput_tok_s": 1005.54,
+      "ttft_p50_ms": 163.1,
+      "ttft_p99_ms": 226.8,
+      "e2e_p50_ms": 5601.9,
+      "e2e_p99_ms": 6928.2
+    },
+    {
+      "concurrency": 16,
+      "throughput_tok_s": 753.19,
+      "ttft_p50_ms": 217.9,
+      "ttft_p99_ms": 339.2,
+      "e2e_p50_ms": 7003.6,
+      "e2e_p99_ms": 9405.5
+    },
+    {
+      "concurrency": 32,
+      "throughput_tok_s": 425.51,
+      "ttft_p50_ms": 344.4,
+      "ttft_p99_ms": 479.4,
+      "e2e_p50_ms": 11556.4,
+      "e2e_p99_ms": 15605.4
+    }
+  ]
+}
