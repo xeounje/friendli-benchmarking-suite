@@ -186,8 +186,9 @@ def _simulate(engine: str, concurrency: int, rng: random.Random) -> List[Request
 
 def _throughput(results: List[RequestResult], concurrency: int) -> float:
     """Tokens per second across all concurrent workers."""
+    if not results:
+        return 0.0
     total_tokens = sum(r.output_tokens for r in results)
-    # wall-clock ≈ max e2e / concurrency  (steady-state approximation)
     wall = max(r.e2e_ms for r in results) / 1000.0
     return round(total_tokens / wall, 2) if wall > 0 else 0.0
 
@@ -215,6 +216,10 @@ def run_benchmark(simulate: bool = True) -> Dict[str, List[LevelResult]]:
                 raw = _simulate(name.lower().replace(" engine", "").strip(), c, rng)
             else:
                 raw = _run_concurrent(url, c)
+                # If all requests failed (e.g. vLLM not running), fall back to simulation
+                if not raw:
+                    print(f"\n  [fallback] No live results for {name} at concurrency={c}, using simulation.")
+                    raw = _simulate(name.lower().replace(" engine", "").strip(), c, rng)
 
             ttfts = [r.ttft_ms for r in raw]
             e2es  = [r.e2e_ms  for r in raw]
