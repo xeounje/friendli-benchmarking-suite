@@ -84,10 +84,15 @@ def _send_request(url: str) -> RequestResult:
             "stream": True,
         }).encode()
 
+        headers = {"Content-Type": "application/json"}
+        token = os.getenv("FRIENDLI_TOKEN", "")
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+
         req = urllib.request.Request(
             url,
             data=payload,
-            headers={"Content-Type": "application/json"},
+            headers=headers,
             method="POST",
         )
 
