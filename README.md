@@ -56,6 +56,24 @@ python benchmarking_script.py --live
 Both engines must serve an OpenAI-compatible `/v1/chat/completions` endpoint
 with streaming (`stream: true`) enabled.
 
+> **Note (Jupyter / Colab):** The `--live` flag conflicts with Jupyter's kernel
+> argument parser. Use the Python API instead:
+> ```python
+> import importlib.util
+> spec = importlib.util.spec_from_file_location("bench", "benchmarking_script.py")
+> bench = importlib.util.module_from_spec(spec)
+> spec.loader.exec_module(bench)
+> results = bench.run_benchmark(simulate=False)
+> bench.plot_results(results)
+> bench.export_json(results)
+> ```
+
+> **Note (Friendli Serverless free tier):** The free-tier plan applies strict
+> rate limits that prevent high-concurrency benchmarking (concurrency > 1).
+> For a full load sweep (concurrency 1–32), a paid plan or
+> [Friendli Dedicated Endpoint](https://friendli.ai/product/dedicated-endpoints)
+> is required.
+
 ### CLI Options
 
 | Flag | Default | Description |
